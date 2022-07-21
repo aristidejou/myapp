@@ -1,11 +1,6 @@
 FROM ubuntu
-
-ENV PYTHONUNBUFFERED 1
-
 EXPOSE 80
-
 RUN apt-get update
-RUN apt-get install apache2 -y
-COPY . /var/www/html
-
+RUN apt-get -y install apache2
+ADD . /var/www/html
 ENTRYPOINT apachectl -D FOREGROUND
